@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**README.md Table Of Contents**
+
+- [bats-mock](#bats-mock)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [`mock_create`](#mock_create)
+    - [`mock_set_status`](#mock_set_status)
+    - [`mock_set_output`](#mock_set_output)
+    - [`mock_set_side_effect`](#mock_set_side_effect)
+    - [`mock_get_call_num`](#mock_get_call_num)
+    - [`mock_get_call_user`](#mock_get_call_user)
+    - [`mock_get_call_args`](#mock_get_call_args)
+    - [`mock_get_call_env`](#mock_get_call_env)
+  - [Testing](#testing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # bats-mock
 
 [![Build Status](https://travis-ci.org/grayhemp/bats-mock.svg?branch=master)](https://travis-ci.org/grayhemp/bats-mock)
