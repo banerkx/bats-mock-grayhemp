@@ -5,6 +5,8 @@ set -euo pipefail
 load ../src/bats-mock
 
 teardown() {
+# NOTE: BATS_TMPDIR is assigned elsewhere.
+# shellcheck disable=SC2154
   rm "${BATS_TMPDIR}/bats-mock.$$."*
 }
 
@@ -26,5 +28,5 @@ teardown() {
 @test 'mock_create creates a program in BATS_TMPDIR' {
   run mock_create
   [[ "${status}" -eq 0 ]]
-  [[ "$(dirname ${output})" = "${BATS_TMPDIR}" ]]
+  [[ "$(dirname "${output}")" = "${BATS_TMPDIR}" ]]
 }

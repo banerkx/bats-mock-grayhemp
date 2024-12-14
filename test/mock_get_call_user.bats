@@ -9,8 +9,12 @@ load mock_test_suite
 }
 
 @test 'mock_get_call_user requires the mock to be called' {
+# NOTE: mock is assigned elsewhere.
+# shellcheck disable=SC2154
   run mock_get_call_user "${mock}"
   [[ "${status}" -eq 1 ]]
+# NOTE: No need to address SC2076 here.
+# shellcheck disable=SC2076
   [[ "${output}" =~ 'Mock must be called at least 1 time(s)' ]]
 }
 
@@ -25,6 +29,8 @@ load mock_test_suite
 @test 'mock_get_call_user requires the mock to be called 1 time' {
   run mock_get_call_user "${mock}" 1
   [[ "${status}" -eq 1 ]]
+# NOTE: No need to address SC2076 here.
+# shellcheck disable=SC2076
   [[ "${output}" =~ 'Mock must be called at least 1 time(s)' ]]
 }
 
@@ -34,12 +40,16 @@ load mock_test_suite
   [[ "${status}" -eq 0 ]]
   run mock_get_call_user "${mock}" 2
   [[ "${status}" -eq 1 ]]
+# NOTE: No need to address SC2076 here.
+# shellcheck disable=SC2076
   [[ "${output}" =~ 'Mock must be called at least 2 time(s)' ]]
 }
 
 @test 'mock_get_call_user requires the mock to be called 3 times' {
   run mock_get_call_user "${mock}" 3
   [[ "${status}" -eq 1 ]]
+# NOTE: No need to address SC2076 here.
+# shellcheck disable=SC2076
   [[ "${output}" =~ 'Mock must be called at least 3 time(s)' ]]
 }
 

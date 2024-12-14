@@ -5,12 +5,18 @@ load mock_test_suite
 @test 'mock_set_status requires mock to be specified' {
   run mock_set_status
   [[ "${status}" -eq 1 ]]
+# NOTE: No need to address SC2076 here.
+# shellcheck disable=SC2076
   [[ "${output}" =~ 'Mock must be specified' ]]
 }
 
 @test 'mock_set_status requires status to be specified' {
+# NOTE: mock is assigned elsewhere.
+# shellcheck disable=SC2154
   run mock_set_status "${mock}"
   [[ "${status}" -eq 1 ]]
+# NOTE: No need to address SC2076 here.
+# shellcheck disable=SC2076
   [[ "${output}" =~ 'Status must be specified' ]]
 }
 
