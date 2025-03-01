@@ -4,27 +4,31 @@
 
 set -e -o pipefail
 
+# shellcheck disable=SC2223
 : ${BATS_VERSION:='1.2.1'}
+# shellcheck disable=SC2223
 : ${BATS_SHA1SUM:='418ca60af55c339ac7911c74a44f7edf41e3a17c'}
+# shellcheck disable=SC2223
 : ${PREFIX:=/usr/local}
+# shellcheck disable=SC2223
 : ${SRCDIR:="${PREFIX}/src"}
 
 if [[ "${PREFIX:0:1}" != '/' ]]; then
-  echo "$(basename $0): PREFIX must be an absolute path" >&2
+  echo "$(basename "${0}"): PREFIX must be an absolute path" >&2
   exit 1
 fi
 
 if [[ "${SRCDIR:0:1}" != '/' ]]; then
-  echo "$(basename $0): SRCDIR must be an absolute path" >&2
+  echo "$(basename "${0}"): SRCDIR must be an absolute path" >&2
   exit 1
 fi
 
-if [[ -n "$(which sha1sum)" ]]; then
+if [[ -n "$(command -v sha1sum)" ]]; then
   sha1_prog='sha1sum -c'
-elif [[ -n "$(which shasum)" ]]; then
+elif [[ -n "$(command -v shasum)" ]]; then
   sha1_prog='shasum -a 1 -c'
 else
-  echo "$(basename $0): No sha1 program found" >&2
+  echo "$(basename "${0}"): No sha1 program found" >&2
   exit 1
 fi
 
